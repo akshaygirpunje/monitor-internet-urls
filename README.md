@@ -24,16 +24,46 @@ sample_external_url_response_ms{url="https://httpstat.us/503 "}  = [value]
 
 ## Technology Used
 
--   [Python](https://www.python.org/) - pytho3
+-   [Python3](https://www.python.org/)
 -   [Prometheus](https://github.com/prometheus/client_python.git)
 -   [Kubernetes](https://kubernetes.io/)
 -   [Helm](https://helm.sh/)
 -   [Grafana](https://grafana.com/)
 
-## Project Configuration
+---
 
-This project uses [Go modules](https://blog.golang.org/using-go-modules) to manage dependencies
+## Set-up
 
-The `go` command resolves imports by using the specific dependency module versions listed in [go.mod](go.mod)
+1. Configure URL_LIST part in [python-monitor-url.py ](python-monitor-url.py) with URLs you wish to monitor. This is currently configured with two urls as an example.
+
+```
+
+    URL_LIST = ["https://httpstat.us/200", "https://httpstat.us/503"]
+
+```
+
+2. Build Docker image and push to repository of your choosing
+
+```shell
+docker build -t $USERNAME/pythonmonitorurls .
+docker run -d --rm --name prometheus-python -p 8001:8001 $USERNAME/pythonmonitorurls
+```
+
+3. Create kubernetes cluster with 1.15+
+
+- [kubeadm](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
+- [EKS](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html)
 
 
+4. Use `helm3` to install Prometheus & Grafana
+
+```shell
+https://helm.sh/docs/intro/install/
+$ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+$ chmod 700 get_helm.sh
+$ ./get_helm.sh
+
+helm repo add stable https://charts.helm.sh/stable
+helm repo update
+helm install prometheus stable/prometheus-operator --namespace prometheus
+```
