@@ -55,15 +55,19 @@ docker run -d --rm --name prometheus-python -p 8001:8001 $USERNAME/pythonmonitor
 - [EKS](https://docs.aws.amazon.com/eks/latest/userguide/create-cluster.html)
 
 
-4. Use `helm3` to install Prometheus & Grafana
+4. Use `helm3` to install Prometheus & Grafana using prometheus-operator
 
 ```shell
+#Install Helm3
 https://helm.sh/docs/intro/install/
 $ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
 $ chmod 700 get_helm.sh
 $ ./get_helm.sh
 
+#Install Prometheus & Grafana
 helm repo add stable https://charts.helm.sh/stable
 helm repo update
-helm install prometheus stable/prometheus-operator --namespace prometheus
+helm install prometheus stable/prometheus-operator
 ```
+
+
