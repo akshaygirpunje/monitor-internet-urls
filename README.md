@@ -168,7 +168,7 @@ http://{WorkerNodeIp or LB}:31060/metrics
 ```
 ---
 
-### Local Testing (Python Only)
+### Local Testing (Python Script)
 
 1. Run ` python python-monitor-url.py`
 
