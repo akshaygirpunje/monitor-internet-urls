@@ -151,7 +151,7 @@ http://{WorkerNodeIp or LB}:31060/metrics
         static_configs:
         - targets: ['{WorkerNodeIp or LB}:31060']
 ```
----
+
 7. Update the `prometheus-operator` repo with new service endpoint.
    - It will add the endpoint to prometheus's target.
    - Check `prometheus-grafana` , `prometheus-prometheus-oper-prometheus` services & modify type if require.
@@ -159,15 +159,27 @@ http://{WorkerNodeIp or LB}:31060/metrics
 ```shell
  helm upgrade  prometheus stable/prometheus-operator -f values1.yaml
 ```
----
 
 8. Configure & test `sample_external_url_up` & `sample_external_url_response_ms` metrics in prometheus at following path
 ```shell
  http://{WorkerNodeIp or LB}:31105/graph
 ```
----
 9. Configure & test `sample_external_url_up` & `sample_external_url_response_ms` metrics in Grafana & create new Dashboard.
 ```shell
  http://{WorkerNodeIp or LB}:31744/dashboard/new?orgId=1
 ```
 ---
+
+### Local Testing (Python Only)
+
+1. Run ` python python-monitor-url.py`
+
+```shell
+python python-monitor-url.py
+('https://httpstat.us/200', '--->', 0.105447)
+('https://httpstat.us/200', '--->', 200)
+('https://httpstat.us/503', '--->', 0.093198)
+('https://httpstat.us/503', '--->', 503)
+('https://httpstat.us/200', '--->', 0.073821)
+
+```
