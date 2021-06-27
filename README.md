@@ -176,10 +176,9 @@ http://{WorkerNodeIp or LB}:31060/metrics
 
 ```shell
 python python-monitor-url.py
-('https://httpstat.us/200', '--->', 0.105447)
-('https://httpstat.us/200', '--->', 200)
-('https://httpstat.us/503', '--->', 0.093198)
-('https://httpstat.us/503', '--->', 503)
-('https://httpstat.us/200', '--->', 0.073821)
-
+('https://httpstat.us/200', 'Response Time:', '--->', 0.078517)
+('https://httpstat.us/200', 'Status Code', '--->', 1)
+('https://httpstat.us/503', 'Response Time:', '--->', 0.129249)
+('https://httpstat.us/503', 'Status Code', '--->', 0)
+('https://httpstat.us/200', 'Response Time:', '--->', 0.082532)
 ```
