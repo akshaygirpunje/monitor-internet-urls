@@ -1870,14 +1870,14 @@ prometheus:
     ## port to 2379 and allow etcd scraping provided it is running on all Kubernetes master nodes
     ##
     additionalScrapeConfigs:
-      - job_name: 'monitor-urls'
-        honor_labels: true
-        static_configs:
-        - targets: ['52.35.140.185:30855']
       - job_name: 'monitor-internet-urls'
         honor_labels: true
         static_configs:
         - targets: ['52.35.140.185:31060']
+      #- job_name: 'monitor-urls'
+        #honor_labels: true
+        #static_configs:
+        #- targets: ['52.35.140.185:30855']
       #- job_name: 'stable-prometheus-pushgateway'
       #  honor_labels: true
       #  static_configs:

@@ -11,7 +11,7 @@ URL_LIST = ["https://httpstat.us/200", "https://httpstat.us/503"]
 def get_response(url):
     response = requests.get(url)
     response_time = response.elapsed.total_seconds()
-    print(url,'--->',response_time)    
+    print(url,'Response Time:','--->',response_time)   
     return response_time
 
 
@@ -28,7 +28,7 @@ def get_url_status():
                 value1=0
             
             STATUS_CODE_GAUGE.labels(url=url_name).set(value1)
-            print(url_name,'--->',url_status_code)
+            print(url_name,'Status Code','--->',value1)
             time.sleep(5)
 
 
