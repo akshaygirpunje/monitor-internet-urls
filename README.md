@@ -135,11 +135,39 @@ sample_external_url_up{url="https://httpstat.us/503"} 0
 
 ```shell
 #Syntax
-#http://WorkerNodeIp:NodePort
-http://52.35.140.185:31150
-http://52.35.140.185:31744
-http://52.35.140.185:31060/metrics 
+#http://{WorkerNodeIp or LB}:NodePort
+http://{WorkerNodeIp or LB}:31150
+http://{WorkerNodeIp or LB}:31744
+http://{WorkerNodeIp or LB}:31060/metrics 
 ```
 
 ---
+6. Modify the `monitor-internet-urls` Job name in [value1.yaml](values1.yaml) in `additionalScrapeConfigs` section as follows.
 
+```shell
+    additionalScrapeConfigs:
+      - job_name: 'monitor-internet-urls'
+        honor_labels: true
+        static_configs:
+        - targets: ['{WorkerNodeIp or LB}:31060']
+```
+---
+7. Update the `prometheus-operator` repo with new service endpoint.
+   - It will add the endpoint to prometheus's target.
+   - Check `prometheus-grafana` , `prometheus-prometheus-oper-prometheus` services & modify type if require.
+   - Check the target in prometheus dashboard at path http://{WorkerNodeIp or LB}/targets
+```shell
+ helm upgrade  prometheus stable/prometheus-operator -f values1.yaml
+```
+---
+
+8. Configure & test `sample_external_url_up` & `sample_external_url_response_ms` metrics in prometheus at following path
+```shell
+ http://{WorkerNodeIp or LB}:31105/graph
+```
+---
+9. Configure & test `sample_external_url_up` & `sample_external_url_response_ms` metrics in Grafana & create new Dashboard.
+```shell
+ http://{WorkerNodeIp or LB}:31744/dashboard/new?orgId=1
+```
+---
