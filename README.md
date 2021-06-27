@@ -37,9 +37,7 @@ sample_external_url_response_ms{url="https://httpstat.us/503 "}  = [value]
 1. Configure URL_LIST part in [python-monitor-url.py ](python-monitor-url.py) with URLs you wish to monitor. This is currently configured with two urls as an example.
 
 ```
-
     URL_LIST = ["https://httpstat.us/200", "https://httpstat.us/503"]
-
 ```
 
 2. Build Docker image and push to repository of your choosing
@@ -115,12 +113,12 @@ prometheus-prometheus-oper-operator       ClusterIP   10.97.212.254    <none>   
 prometheus-prometheus-oper-prometheus     NodePort    10.96.241.233    <none>        9090:31105/TCP               10h
 ```
 
-5. Test service through `CLI` or `Web Browser`
+5. Test services through `CLI` or `Web Browser`
 
 - Check using CLI
 
 ```shell
-curl http://curl 10.96.242.48:80/metrics
+curl http://10.111.11.17:8001/metrics
 # HELP sample_external_url_response_ms HTTP response in milliseconds
 # TYPE sample_external_url_response_ms gauge
 sample_external_url_response_ms{url="https://httpstat.us/200"} 129
@@ -131,7 +129,7 @@ sample_external_url_up{url="https://httpstat.us/200"} 1
 sample_external_url_up{url="https://httpstat.us/503"} 0
 ```
 
--   Check `prometheus-grafana` , `prometheus-prometheus-oper-prometheus` & `monitor-internet-urls` using web browser
+-   Check `prometheus-grafana` , `prometheus-prometheus-oper-prometheus` & `monitor-internet-urls` services using web browser.
 
 ```shell
 #Syntax
@@ -142,7 +140,7 @@ http://{WorkerNodeIp or LB}:31060/metrics
 ```
 
 ---
-6. Modify the `monitor-internet-urls` Job name in [value1.yaml](values1.yaml) in `additionalScrapeConfigs` section as follows.
+6. Add the service `monitor-internet-urls` endpoint to prometheus's target by adding `job_name` in [value1.yaml](values1.yaml) at `additionalScrapeConfigs` section as follows.
 
 ```shell
     additionalScrapeConfigs:
