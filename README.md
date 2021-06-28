@@ -34,7 +34,7 @@ sample_external_url_response_ms{url="https://httpstat.us/503 "}  = [value]
 
 ## Set-up
 
-1. Configure URL_LIST part in [python-monitor-url.py ](python-monitor-url.py) with URLs you wish to monitor. This is currently configured with two urls as an example.
+1. Configure URL_LIST part in [python_monitor_url.py ](python_monitor_url.py) with URLs you wish to monitor. This is currently configured with two urls as an example.
 
 ```
     URL_LIST = ["https://httpstat.us/200", "https://httpstat.us/503"]
@@ -170,10 +170,10 @@ http://{WorkerNodeIp or LB}:31060/metrics
 
 ### Local Testing (Python Script)
 
-1. Run ` python python-monitor-url.py`
+1. Run ` python python_monitor_url.py`
 
 ```shell
-python python-monitor-url.py
+python python_monitor_url.py
 ('https://httpstat.us/200', 'Response Time:', '--->', 0.078517)
 ('https://httpstat.us/200', 'Status Code', '--->', 1)
 ('https://httpstat.us/503', 'Response Time:', '--->', 0.129249)
@@ -197,10 +197,13 @@ sample_external_url_up{url="https://httpstat.us/503"} 0
 
 3. Unit Test
 ```shell
-python -m unittest test_python-monitor-url
+ python -m unittest test_python-monitor-url
+('https://httpstat.us/200', 'Status Code', '--->', 1)
+.('https://httpstat.us/503', 'Status Code', '--->', 0)
+.('https://httpstat.us/400', 'Status Code', '--->', 0)
 .
 ----------------------------------------------------------------------
-Ran 1 test in 0.794s
+Ran 3 tests in 0.317s
 
 OK
 ```
