@@ -2,6 +2,7 @@ import prometheus_client as prom
 import requests
 import time
 
+
 '''
 Variables
 '''
@@ -10,8 +11,8 @@ STATUS_CODE_GAUGE = prom.Gauge('sample_external_url_up', 'Boolean status of site
 URL_LIST = ["https://httpstat.us/200", "https://httpstat.us/503"]
 
 '''
-Get the response time in ms for URL
-Return the response time in ms for URL
+Get the response time in ms for URL.
+Return the response time in ms for URL.
 '''
 def get_response(url):
     response = requests.get(url)
@@ -20,8 +21,9 @@ def get_response(url):
     return response_time
 
 '''
-Get the URL's HTTP status code like (200 / 503 / 400) of URLs & set the status code value as 1 for 200 HTTP status 
-code and value set to 0 for non 200 HTTP response code.
+Get the URL's HTTP status code like (200 / 503 / 400)  & 
+set the status code value as 1 for 200 HTTP status code and value set to 0 for non 200 HTTP response code.
+Return the status code as 1 or 0.
 '''
 def get_url_status(url):        
     response = requests.get(url)
@@ -34,7 +36,7 @@ def get_url_status(url):
     return status_code
         
 '''
-Set the URL Response code & URL status code recursively in Gauge.
+Set the URL's Response code & status code recursively in Gauge.
 '''
 def set_values():
     while True:
