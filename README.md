@@ -180,3 +180,28 @@ python python-monitor-url.py
 ('https://httpstat.us/503', 'Status Code', '--->', 0)
 ('https://httpstat.us/200', 'Response Time:', '--->', 0.082532)
 ```
+
+2. Curl `localhost`
+```shell
+curl localhost:8080/metrics
+
+# HELP sample_external_url_response_ms HTTP response in milliseconds
+# TYPE sample_external_url_response_ms gauge
+sample_external_url_response_ms{url="https://httpstat.us/200"} 0.078517
+sample_external_url_response_ms{url="https://httpstat.us/503"} 0.129249
+# HELP sample_external_url_up Boolean status of site up or down
+# TYPE sample_external_url_up gauge
+sample_external_url_up{url="https://httpstat.us/200"} 1
+sample_external_url_up{url="https://httpstat.us/503"} 0
+```
+
+3. Unit Test
+```shell
+cd unittest
+python -m unittest test_python-monitor-url
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.794s
+
+OK
+```
