@@ -183,7 +183,7 @@ python python-monitor-url.py
 
 2. Curl `localhost`
 ```shell
-curl localhost:8080/metrics
+curl localhost:8001/metrics
 
 # HELP sample_external_url_response_ms HTTP response in milliseconds
 # TYPE sample_external_url_response_ms gauge
@@ -197,7 +197,6 @@ sample_external_url_up{url="https://httpstat.us/503"} 0
 
 3. Unit Test
 ```shell
-cd unittest
 python -m unittest test_python-monitor-url
 .
 ----------------------------------------------------------------------
