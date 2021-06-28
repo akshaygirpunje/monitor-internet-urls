@@ -1,4 +1,4 @@
-from pythonmonitorurl import *
+from python-monitor-url import *
 import unittest
 
 class TestURL(unittest.TestCase):
