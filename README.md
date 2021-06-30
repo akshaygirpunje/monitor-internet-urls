@@ -199,14 +199,17 @@ sample_external_url_up{url="https://httpstat.us/503"} 0
 
 3. Unit Test
 ```shell
- python -m unittest test_python-monitor-url
-('https://httpstat.us/200', 'Response Time', '--->', 0.087801)
-.('https://httpstat.us/503', 'Response Time', '--->', 0.154246)
-.('https://httpstat.us/400', 'Response Time', '--->', 0.082401)
-.('https://httpstat.us/200', 'Status Code', '--->', 1)
-.('https://httpstat.us/503', 'Status Code', '--->', 0)
-.('https://httpstat.us/400', 'Status Code', '--->', 0)
+python -m unittest test_python-monitor-url
+https://httpstat.us/200 Response Time ---> 0.089305
+.https://httpstat.us/503 Response Time ---> 0.11151
+.https://httpstat.us/400 Response Time ---> 0.086959
+.https://httpstat.us/200 Status Code ---> 1
+.https://httpstat.us/503 Status Code ---> 0
+.https://httpstat.us/400 Status Code ---> 0
 .
 ----------------------------------------------------------------------
-Ran 6 tests in 0.734s
+Ran 6 tests in 0.664s
+
+OK
+
 ```
