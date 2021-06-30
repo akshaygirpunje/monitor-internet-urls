@@ -27,17 +27,19 @@ sample_external_url_response_ms{url="https://httpstat.us/503 "}  = [value]
 -   [Python3](https://www.python.org/)
 -   [Prometheus](https://github.com/prometheus/client_python.git)
 -   [Kubernetes](https://kubernetes.io/)
--   [Helm](https://helm.sh/)
+-   [Helm3](https://helm.sh/)
 -   [Grafana](https://grafana.com/)
 
 ---
 
 ## Set-up
 
-1. Configure URL_LIST part in [python_monitor_url.py ](python_monitor_url.py) with URLs you wish to monitor. This is currently configured with two urls as an example.
+1. Configure urls part in [urls.json](urls.json) with URLs you wish to monitor. This is currently configured with two urls as an example.
 
 ```
-    URL_LIST = ["https://httpstat.us/200", "https://httpstat.us/503"]
+    {
+    "urls": ["https://httpstat.us/200","https://httpstat.us/503"]
+    }
 ```
 
 2. Build Docker image and push to repository of your choosing
