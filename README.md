@@ -46,7 +46,7 @@ sample_external_url_response_ms{url="https://httpstat.us/503 "}  = [value]
 
 ```shell
 docker build -t $USERNAME/pythonmonitorurls .
-docker run -d --rm --name prometheus-python -p 8001:8001 $USERNAME/pythonmonitorurls
+docker push $USERNAME/pythonmonitorurls:$tagname
 ```
 
 3. Create kubernetes cluster with 1.15+ using any Kubernetes cluster creation method.
