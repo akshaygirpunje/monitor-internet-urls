@@ -176,11 +176,14 @@ http://{WorkerNodeIp or LB}:31060/metrics
 
 ```shell
 python python_monitor_url.py
-('https://httpstat.us/200', 'Response Time:', '--->', 0.078517)
-('https://httpstat.us/200', 'Status Code', '--->', 1)
-('https://httpstat.us/503', 'Response Time:', '--->', 0.129249)
-('https://httpstat.us/503', 'Status Code', '--->', 0)
-('https://httpstat.us/200', 'Response Time:', '--->', 0.082532)
+https://httpstat.us/200 Response Time ---> 0.24364
+https://httpstat.us/200 Status Code ---> 1
+https://httpstat.us/503 Response Time ---> 0.202487
+https://httpstat.us/503 Status Code ---> 0
+https://httpstat.us/200 Response Time ---> 0.140812
+https://httpstat.us/200 Status Code ---> 1
+https://httpstat.us/503 Response Time ---> 0.121563
+https://httpstat.us/503 Status Code ---> 0
 ```
 
 2. Curl `localhost`
