@@ -80,6 +80,11 @@ Main method
 -> Set the Response time & URL status code using set_values() function
 '''
 if __name__ == '__main__':
+    try:
         prom.start_http_server(8001)
         URL_LIST=get_url_list()
         set_values()
+    except OSError:
+        print('8001 port Address is in use,please use diffrent port')
+    except Exception:
+        print('Please provide the valid URLs in urls.json or check the Network connectivity')
