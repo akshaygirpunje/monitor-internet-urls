@@ -32,7 +32,7 @@ sample_external_url_response_ms{url="https://httpstat.us/503 "}  = [value]
 
 ---
 
-## Application Screenshot
+## Application's Screenshots
 
 ### Grafana Dashboard
 
