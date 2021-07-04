@@ -107,11 +107,11 @@ kubectl create secret docker-registry regcred --docker-server=<your-registry-ser
 3.  Run `kubectl deployment-prod.yaml and service.yaml`
 
 ```shell
-kubectl apply -f deployment.yaml
-service/monitor-internet-urls created
+kubectl apply -f deployment-prod.yaml
+deployment.apps/monitor-internet-urls created
 
 kubectl apply -f service.yaml
-deployment.apps/monitor-internet-urls created
+service/monitor-internet-urls created
 ```
 -   View the deployment
 
