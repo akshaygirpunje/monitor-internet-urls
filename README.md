@@ -104,7 +104,7 @@ kubectl create secret docker-registry regcred --docker-server=<your-registry-ser
 ```
 2. In [deployment.yaml](deployment.yaml) change `image: akshaygirpunje/pythonmonitorurls:latest` to newly built Docker image you done in the set-up and also change the secret name.
 
-3.  Run `kubectl deployment.yaml and service.yaml`
+3.  Run `kubectl deployment-prod.yaml and service.yaml`
 
 ```shell
 kubectl apply -f deployment.yaml
