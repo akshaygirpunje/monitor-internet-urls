@@ -32,6 +32,30 @@ sample_external_url_response_ms{url="https://httpstat.us/503 "}  = [value]
 
 ---
 
+## Application Screenshot
+
+### Grafana Dashboard
+
+![Grafana Dashboard](images/Grafana-Dashboard.png)
+
+### Prometheus Metrics
+
+##### URL Response time in Prometheus
+![Prometheus](images/Prometheus-ResponseTime.png)
+
+##### URL Status in Prometheus
+![Prometheus](images/Prometheus-StatusCode.png)
+
+##### Prometheus Targets
+![Prometheus](images/Prometheus-Targets.png)
+
+### Python Web Service
+
+##### Python Web Service
+![Prometheus](images/Python-WebService.png)
+
+---
+
 ## Set-up
 
 1. Configure urls part in [urls.json](urls.json) with URLs you wish to monitor. This is currently configured with two urls as an example.
