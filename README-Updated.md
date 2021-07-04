@@ -31,6 +31,29 @@ sample_external_url_response_ms{url="https://httpstat.us/503 "}  = [value]
 -   [Grafana](https://grafana.com/)
 
 ---
+## Application Screenshot
+
+### Grafana Dashboard
+
+![Grafana Dashboard](images/Grafana-Dashboard.png)
+
+### Prometheus Metrics
+
+##### URL Response time in Prometheus
+![Prometheus](images/Prometheus-ResponseTime.png)
+
+##### URL Status in Prometheus
+![Prometheus](images/Prometheus-StatusCode.png)
+
+##### Prometheus Targets
+![Prometheus](images/Prometheus-Targets.png)
+
+### Python Service
+
+##### Screenshot 4
+![Prometheus](images/Python-WebService.png)
+
+---
 
 ## Set-up
 
